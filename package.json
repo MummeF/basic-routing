@@ -1,8 +1,8 @@
 {
   "name": "react-basic-routing",
   "version": "1.0.4",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "lib/BasicRouter.js",
+  "types": "lib/BasicRouter.d.ts",
   "dependencies": {
     "react-router-dom": "^5.2.0"
   },
