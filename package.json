@@ -2,7 +2,7 @@
   "name": "react-basic-routing",
   "version": "1.0.6",
   "main": "lib/BasicRouter.js",
-  "types": "lib/*.d.ts",
+  "types": "lib/BasicRouter.d.ts",
   "dependencies": {
     "react-router-dom": "^5.2.0"
   },
