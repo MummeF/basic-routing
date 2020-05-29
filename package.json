@@ -29,9 +29,6 @@
   "devDependencies": {
     "typescript": "^3.9.3"
   },
-  "files": [
-    "lib/**/*"
-  ],
   "directories": {
     "lib": "lib"
   },
@@ -48,6 +45,9 @@
   "bugs": {
     "url": "https://github.com/MummeF/basic-routing/issues"
   },
+  "files": [
+    "lib/**/*"
+  ],
   "homepage": "https://github.com/MummeF/basic-routing#readme",
   "description": ""
 }
