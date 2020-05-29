@@ -10,7 +10,8 @@
     "strict": true,
     "module": "commonjs",
     "jsx": "react",
-    "outDir": "./lib"
+    "outDir": "./lib",
+    "declaration": true
   },
   "include": [
     "src"
