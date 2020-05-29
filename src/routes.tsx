@@ -1,10 +1,10 @@
 import * as React from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 
 export interface BasicRoute {
     path: string;
-    exact: boolean;
+    exact?: boolean;
     name?: string;
     child: JSX.Element;
     icon?: JSX.Element;
@@ -12,23 +12,25 @@ export interface BasicRoute {
 
 export interface DynamicRoute {
     path: string;
-    exact: boolean;
+    exact?: boolean;
     name?: string;
     component: any;
     icon?: JSX.Element;
 }
 interface RoutesProps {
     routes: (DynamicRoute | BasicRoute)[];
+    error404?: BasicRoute;
+    nameToWindowTitle?: boolean;
 }
 
 export default function Routes(props: RoutesProps) {
     const nameForPath = (path: string) => {
         return props.routes.find((route) => route.path === path)?.name;
     }
-
-    const name = nameForPath(window.location.pathname);
-    window.document.title = "Brainstorm" + (name !== undefined ? " - " + name : "");
-
+    if (props.nameToWindowTitle) {
+        const name = nameForPath(window.location.pathname);
+        window.document.title = "Brainstorm" + (name !== undefined ? " - " + name : "");
+    }
     let displayedRoutes: JSX.Element[] = [];
     props.routes.forEach(route => {
         if ((route as BasicRoute).child) {
@@ -40,6 +42,13 @@ export default function Routes(props: RoutesProps) {
         }
     })
 
-    return <></>;
+    if (props.error404) {
+        displayedRoutes.push(<Route exact={props.error404.exact} key={props.error404.path} path="" children={props.error404.child} />)
+    }
+
+    return <Switch>
+        {displayedRoutes}
+    </Switch>
+
 
 }
