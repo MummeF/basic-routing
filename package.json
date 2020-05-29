@@ -1,6 +1,8 @@
 {
-  "name": "@types/react-basic-routing",
+  "name": "react-basic-routing",
   "version": "1.0.3",
+  "main": "lib/index.js",
+   "types": "lib/index.d.ts",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -33,7 +35,6 @@
   "files": [
     "lib/**/*"
   ],
-  "main": "index.js",
   "directories": {
     "lib": "lib"
   },
