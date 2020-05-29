@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Switch } from "react-router-dom"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import React from "react"
 
 interface BasicRouterProps {
@@ -13,13 +13,13 @@ interface BasicRouterProps {
 export default function BasicRouter(props: BasicRouterProps) {
     return (
         <>
-            <BrowserRouter>
+            <Router>
                 {props.beforeRoutes}
                 <div className={props.routesClassName}>
                     <Routes routes={props.routes} error404={props.error404} nameToWindowTitle={props.nameToWindowTitle} />
                 </div>
                 {props.afterRoutes}
-            </BrowserRouter>
+            </Router>
         </>
     );
 }
