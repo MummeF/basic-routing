@@ -11,13 +11,17 @@ interface BasicRouterProps {
 }
 
 export default function BasicRouter(props: BasicRouterProps) {
-    return <BrowserRouter>
-        {props.beforeRoutes}
-        <div className={props.routesClassName}>
-            <Routes routes={props.routes} error404={props.error404} nameToWindowTitle={props.nameToWindowTitle} />
-        </div>
-        {props.afterRoutes}
-    </BrowserRouter>
+    return (
+        <>
+            <BrowserRouter>
+                {props.beforeRoutes}
+                <div className={props.routesClassName}>
+                    <Routes routes={props.routes} error404={props.error404} nameToWindowTitle={props.nameToWindowTitle} />
+                </div>
+                {props.afterRoutes}
+            </BrowserRouter>
+        </>
+    );
 }
 export interface BasicRoute {
     path: string;
