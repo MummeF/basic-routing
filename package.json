@@ -1,6 +1,6 @@
 {
   "name": "@types/react-basic-routing",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -11,7 +11,7 @@
   "scripts": {
     "test": "echo \"No Tests defined\"",
     "build": "tsc",
-    "prepare" : "npm run build"
+    "prepare": "npm run build"
   },
   "browserslist": {
     "production": [
@@ -41,7 +41,10 @@
     "type": "git",
     "url": "git+https://github.com/MummeF/basic-routing.git"
   },
-  "keywords": ["react","routing"],
+  "keywords": [
+    "react",
+    "routing"
+  ],
   "author": "Felix Mumme",
   "license": "ISC",
   "bugs": {
