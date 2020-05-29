@@ -1,7 +1,6 @@
 {
   "name": "react-basic-routing",
-  "version": "1.0.0",
-  "private": true,
+  "version": "1.0.1",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -14,7 +13,7 @@
     "typescript": "^3.9.3"
   },
   "scripts": {
-    "test": "react-scripts test"
+    "test": "echo \"No Tests defined\""
   },
   "browserslist": {
     "production": [

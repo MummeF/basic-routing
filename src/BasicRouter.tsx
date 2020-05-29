@@ -1,4 +1,4 @@
-import Routes, { DynamicRoute, BasicRoute } from "./routes"
+import Routes, { DynamicRoute, BasicRoute } from "./Routes"
 import { BrowserRouter } from "react-router-dom"
 import React from "react"
 
