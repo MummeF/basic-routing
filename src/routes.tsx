@@ -17,6 +17,7 @@ export interface DynamicRoute {
     component: any;
     icon?: JSX.Element;
 }
+
 interface RoutesProps {
     routes: (DynamicRoute | BasicRoute)[];
     error404?: BasicRoute;
