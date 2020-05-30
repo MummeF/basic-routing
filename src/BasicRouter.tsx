@@ -1,10 +1,7 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 import React from "react"
 
-interface BasicRouterProps {
-    routes: (DynamicRoute | BasicRoute)[];
-    error404?: BasicRoute;
-    nameToWindowTitle?: boolean;
+interface BasicRouterProps extends RoutesProps {
     beforeRoutes?: JSX.Element;
     afterRoutes?: JSX.Element;
     routesClassName?: string;
@@ -16,7 +13,7 @@ export default function BasicRouter(props: BasicRouterProps) {
             <BrowserRouter>
                 {props.beforeRoutes}
                 <div className={props.routesClassName}>
-                    <Routes routes={props.routes} error404={props.error404} nameToWindowTitle={props.nameToWindowTitle} />
+                    <Routes {...props}/>
                 </div>
                 {props.afterRoutes}
             </BrowserRouter>
@@ -43,6 +40,7 @@ interface RoutesProps {
     routes: (DynamicRoute | BasicRoute)[];
     error404?: BasicRoute;
     nameToWindowTitle?: boolean;
+    windowTitle?: string;
 }
 
 export function Routes(props: RoutesProps) {
@@ -51,7 +49,7 @@ export function Routes(props: RoutesProps) {
     }
     if (props.nameToWindowTitle) {
         const name = nameForPath(window.location.pathname);
-        window.document.title = "Brainstorm" + (name !== undefined ? " - " + name : "");
+        window.document.title = props.windowTitle + (name !== undefined ? " - " + name : "");
     }
     let displayedRoutes: JSX.Element[] = [];
     props.routes.forEach(route => {
