@@ -51,11 +51,12 @@ export function Routes(props: RoutesProps) {
         if(props.windowTitle){
             if (props.nameToWindowTitle) {
                 const name = nameForPath(window.location.pathname);
-                window.document.title = props.windowTitle + (name !== undefined ? " - " + name : "");
+                window.document.title = "Dies das, Ananas" + (name !== undefined ? " - " + name : "");
             }else{
                 window.document.title = props.windowTitle;
             }
         }
+        console.log("updated")
     },[window.location.pathname])
     
     let displayedRoutes: JSX.Element[] = [];
