@@ -13,7 +13,7 @@ export default function BasicRouter(props: BasicRouterProps) {
             <BrowserRouter>
                 {props.beforeRoutes}
                 <div className={props.routesClassName}>
-                    <Routes {...props}/>
+                    <Routes {...props} />
                 </div>
                 {props.afterRoutes}
             </BrowserRouter>
@@ -47,18 +47,15 @@ export function Routes(props: RoutesProps) {
     const nameForPath = (path: string) => {
         return props.routes.find((route) => route.path === path)?.name;
     }
-    React.useEffect(()=>{
-        if(props.windowTitle){
-            if (props.nameToWindowTitle) {
-                const name = nameForPath(window.location.pathname);
-                window.document.title = "Dies das, Ananas" + (name !== undefined ? " - " + name : "");
-            }else{
-                window.document.title = props.windowTitle;
-            }
+    if (props.windowTitle) {
+        if (props.nameToWindowTitle) {
+            const name = nameForPath(window.location.pathname);
+            window.document.title = props.windowTitle + (name !== undefined ? " - " + name : "");
+        } else {
+            window.document.title = props.windowTitle;
         }
-        console.log("updated")
-    },[window.location.pathname])
-    
+    }
+
     let displayedRoutes: JSX.Element[] = [];
     props.routes.forEach(route => {
         if ((route as BasicRoute).child) {
@@ -71,7 +68,7 @@ export function Routes(props: RoutesProps) {
     })
 
     if (props.error404) {
-        displayedRoutes.push(<Route exact={props.error404.exact} key={props.error404.path} path="" children={props.error404.child} />)
+        displayedRoutes.push(<Route exact={false} key={props.error404.path} path="" children={props.error404.child} />)
     }
 
     return <Switch>
