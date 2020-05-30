@@ -47,9 +47,13 @@ export function Routes(props: RoutesProps) {
     const nameForPath = (path: string) => {
         return props.routes.find((route) => route.path === path)?.name;
     }
-    if (props.nameToWindowTitle) {
-        const name = nameForPath(window.location.pathname);
-        window.document.title = props.windowTitle + (name !== undefined ? " - " + name : "");
+    if(props.windowTitle){
+        if (props.nameToWindowTitle) {
+            const name = nameForPath(window.location.pathname);
+            window.document.title = props.windowTitle + (name !== undefined ? " - " + name : "");
+        }else{
+            window.document.title = props.windowTitle;
+        }
     }
     let displayedRoutes: JSX.Element[] = [];
     props.routes.forEach(route => {
