@@ -6,6 +6,8 @@ This package is for those who just need basic routing in there react-app.
 
 Make sure that your app supports typescript and JSX elements
 
+Important: You have to deinstall react-router-dom, if installed. You can import every component from react-router-dom from this package.
+
 ### Installing
 
 `npm install -s react-basic-routing`
@@ -33,7 +35,6 @@ const routes: (BasicRoute | DynamicRoute)[] = [
             child: <Home></Home>,
             exact: true
         },
-        ...
     ]
 
 export default function Router (props){
@@ -55,3 +56,43 @@ You can add a className to the Component which renders the Routes, to wrap the r
 You can also add Components to render before and after this Routes-Component, by adding a `JSX.Element` to the properties `beforeRoutes` or `afterRoutes`.
 
 Provide the `nameToWindowTitle`-flag to display the given name in window title
+
+### BasicRoute vs DynamicRoute
+
+This Router provides the possibility to generate dynamic routes, just like `user/123456`.
+
+This is done by adding a DynamicRoute to the `routes`:
+
+```
+const routes: (BasicRoute | DynamicRoute)[] = [
+        {
+            path: "/",
+            name: "Home",
+            child: <Home></Home>,
+            exact: true
+        },
+        {
+            path: "/user/:id", //in the component user you can get the prop 'id' (see example below)
+            name: "Home",
+            component: User,
+            exact: true
+        },
+    ]
+
+type TParams = { id: string } //this has to be a string, even if you like it to be a number. Catch any string with a Redirect
+
+
+export default function User({ match }: RouteComponentProps<TParams>) {
+    
+    if (match.params) {
+        const id: string = match.params.id;
+        //Here you can do whatever you want with it.
+        return <h1>Matched ID {id}</h1>
+    } else {
+        return <Redirect to="/" />
+    }
+
+}
+```
+
+You can use the same rules as you would do in `BrowserRouter` of react-router-dom.

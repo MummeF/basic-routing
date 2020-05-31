@@ -4,10 +4,11 @@
   "main": "lib/BasicRouter.js",
   "types": "lib/BasicRouter.d.ts",
   "dependencies": {
-    "react-router-dom": "^5.2.0",
-    "@types/react-router-dom": "^5.1.5",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "typescript": "^3.9.3",
+    "react-router-dom": "^5.2.0",
+    "@types/react-router-dom": "^5.1.5"
   },
   "scripts": {
     "test": "echo \"No Tests defined\"",
@@ -26,9 +27,7 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "typescript": "^3.9.3"
-  },
+  "devDependencies": {},
   "directories": {
     "lib": "lib"
   },

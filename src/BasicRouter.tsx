@@ -1,5 +1,7 @@
-import { BrowserRouter, Route, Switch } from "react-router-dom"
 import React from "react"
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+
+export * from "react-router-dom";
 
 interface BasicRouterProps extends RoutesProps {
     beforeRoutes?: JSX.Element;
@@ -9,23 +11,27 @@ interface BasicRouterProps extends RoutesProps {
 
 export default function BasicRouter(props: BasicRouterProps) {
     return (
-        <>
-            <BrowserRouter>
-                {props.beforeRoutes}
-                <div className={props.routesClassName}>
+        <BrowserRouter>
+            {props.beforeRoutes}
+            <div className={props.routesClassName}>
+                <Switch>
                     <Routes {...props} />
-                </div>
-                {props.afterRoutes}
-            </BrowserRouter>
-        </>
+                </Switch>
+            </div>
+            {props.afterRoutes}
+        </BrowserRouter>
     );
 }
+
 export interface BasicRoute {
     path: string;
     exact?: boolean;
     name?: string;
     child: JSX.Element;
-    icon?: JSX.Element;
+}
+export interface ErrorRoute {
+    name?: string;
+    child: JSX.Element;
 }
 
 export interface DynamicRoute {
@@ -33,12 +39,11 @@ export interface DynamicRoute {
     exact?: boolean;
     name?: string;
     component: any;
-    icon?: JSX.Element;
 }
 
 interface RoutesProps {
     routes: (DynamicRoute | BasicRoute)[];
-    error404?: BasicRoute;
+    error404?: ErrorRoute;
     nameToWindowTitle?: boolean;
     windowTitle?: string;
 }
@@ -68,7 +73,7 @@ export function Routes(props: RoutesProps) {
     })
 
     if (props.error404) {
-        displayedRoutes.push(<Route exact={false} key={props.error404.path} path="" children={props.error404.child} />)
+        displayedRoutes.push(<Route key={"404"} path="*" children={props.error404.child} />)
     }
 
     return <Switch>
