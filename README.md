@@ -6,7 +6,7 @@ This package is for those who just need basic routing in their react-app.
 
 Make sure that your app supports typescript and JSX elements
 
-Important: You have to deinstall react-router-dom, if installed. You can import every component from react-router-dom from this package.
+Important: You have to uninstall react-router-dom, if installed. You can import every component from react-router-dom from this package.
 
 ### Installing
 
@@ -47,7 +47,7 @@ export default function Router (props){
 }
 ```
 
-The above example generates a Router which is able to route the path "/" to the "Home"-Component, as well as every other path to "Page404"-Component.
+The example above generates a Router which is able to route the path "/" to the "Home"-Component, as well as every other path to "Page404"-Component.
 
 You can add a className to the Component which renders the Routes, to wrap the routes by adding the `routesClassName` property.
 
