@@ -1,6 +1,6 @@
 # React Basic Routing
 
-This package is for those who just need basic routing in there react-app.
+This package is for those who just need basic routing in their react-app.
 
 ### Prerequisites
 
