@@ -40,10 +40,8 @@ const routes: (BasicRoute | DynamicRoute)[] = [
 export default function Router (props){
     return <BasicRouter routes={routes}
                 error404={{
-                    path: "",
                     name: "404",
-                    child: <Page404></Page404>,
-                    exact: true
+                    child: <Page404></Page404>
                 }}
             />
 }
